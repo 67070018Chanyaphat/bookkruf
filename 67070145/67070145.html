@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Yossaphol Server Monitoring</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<section class="container">
+		<div class="header">
+			<h1>Yossaphol's System Status Dashboard</h1>
+		</div>
+		<div class="box-horizon">
+			<div class="box-1">
+				<div class="top">
+					<h3>CPU Usage</h3>
+				</div>
+				<div class="down">
+					<h2><span id="cpu">%</span></h2>
+				</div>
+			</div>
+			<div class="box-2">
+				<div class="top">
+					<h3>Memmory Usage</h3>
+				</div>
+				<div class="down">
+					<h2><span id="mem">%</span></h2>
+				</div>
+			</div>
+			<div class="box-3">
+				<div class="top">
+					<h3>Storage Usage</h3>
+				</div>
+				<div class="down">
+					<h2><span id="storage">55%</span></h2>
+				</div>
+			</div>
+		</div>
+		<div class="box-4">
+			<table border="1" style="width: 100%; border-collapse: collapse;">
+    				<thead>
+        				<tr>
+            					<th>PID</th>
+            					<th>User</th>
+            					<th>%CPU</th>
+            					<th>%MEM</th>
+            					<th>Command</th>
+        				</tr>
+    				</thead>
+    				<tbody id="top_process">
+        				<tr><td colspan="5">Loading...</td></tr>
+    				</tbody>
+			</table>			
+		<div>		
+	</section>
+	<section class="container">
+		<div class="c">
+			<h3>Last Updated: <span id="lastupdate">2025-11-20 17:33:15</span></h3>
+		</div>		
+	</section>
+</body>
+</html>
