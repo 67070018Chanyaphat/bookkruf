@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Monitor B&W</title>
+    <title>Tipwaree Server Monitor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* --- Monochrome Palette --- */
             --primary-color: #000000; 
             --bg-color: #f8f8f8;      
             --card-bg: #ffffff;       
@@ -23,7 +22,6 @@
         }
 
         body {
-            /* ใช้ Prompt เป็นหลักผสมกับ Inter */
             font-family: 'Prompt', 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -39,7 +37,6 @@
             max-width: 1000px;
         }
 
-        /* --- Header --- */
         .header {
             margin-bottom: 30px;
             display: flex;
@@ -75,7 +72,6 @@
             font-weight: 400;
         }
 
-        /* --- Info Grid --- */
         .info-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -183,7 +179,6 @@
             font-weight: 400;
         }
 
-        /* --- Table --- */
         .table-section {
             background: var(--card-bg);
             border-radius: 16px;
@@ -306,7 +301,7 @@
         </div>
 
         <div class="table-section">
-            <div class="table-header">Top Processes</div>
+            <div class="table-header">Top 5 Processes</div>
             <table>
                 <thead><tr><th>PID</th><th>User</th><th>CPU</th><th>MEM</th><th>Command</th></tr></thead>
                 <tbody>

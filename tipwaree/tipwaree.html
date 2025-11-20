@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Monitor B&W</title>
+    <title>Tipwaree Server Monitor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* --- Monochrome Palette --- */
             --primary-color: #000000; 
             --bg-color: #f8f8f8;      
             --card-bg: #ffffff;       
@@ -23,7 +22,6 @@
         }
 
         body {
-            /* ใช้ Prompt เป็นหลักผสมกับ Inter */
             font-family: 'Prompt', 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -39,7 +37,6 @@
             max-width: 1000px;
         }
 
-        /* --- Header --- */
         .header {
             margin-bottom: 30px;
             display: flex;
@@ -75,7 +72,6 @@
             font-weight: 400;
         }
 
-        /* --- Info Grid --- */
         .info-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -183,7 +179,6 @@
             font-weight: 400;
         }
 
-        /* --- Table --- */
         .table-section {
             background: var(--card-bg);
             border-radius: 16px;
@@ -266,14 +261,14 @@
     <div class="container">
         <div class="header">
             <h1><span>●</span>Tipwaree's Server Monitoring</h1>
-            <div class="timestamp">Last Updated (BKK): 20 November 2025 • 12:45</div>
+            <div class="timestamp">Last Updated (BKK): 20 November 2025 • 22:20</div>
         </div>
 
         <div class="info-section">
             <div class="info-box"><small>ระบบปฏิบัติการ</small><span>Ubuntu 24.04.3 LTS</span></div>
             <div class="info-box"><small>เครื่องแม่ข่าย</small><span>missing-sem</span></div>
             <div class="info-box"><small>ไอพี</small><span>192.168.17.128</span></div>
-            <div class="info-box"><small>เปิดใช้งานมาแล้ว</small><span>1 day, 2 hours, 40 minutes</span></div>
+            <div class="info-box"><small>เปิดใช้งานมาแล้ว</small><span>1 day, 5 hours, 13 minutes</span></div>
         </div>
 
         <div class="stats-row">
@@ -282,7 +277,7 @@
                     <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"/><path d="M9 2v2"/><path d="M15 2v2"/><path d="M9 20v2"/><path d="M15 20v2"/><path d="M2 9h2"/><path d="M2 15h2"/><path d="M20 9h2"/><path d="M20 15h2"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9 9h6v6H9V9Zm2 2v2h2v-2h-2Z" fill="#ffffff"/></svg>
                     CPU Usage
                 </div>
-                <div class="pie-chart" style="--percent: 23.1%;" data-val="23.1%"></div>
+                <div class="pie-chart" style="--percent: 9.1%;" data-val="9.1%"></div>
                 <div class="stat-detail">Processing Power</div>
             </div>
 
@@ -292,7 +287,7 @@
                     Memory Usage
                 </div>
                 <div class="pie-chart" style="--percent: 15%;" data-val="15%"></div>
-                <div class="stat-detail">296 / 1956 MB</div>
+                <div class="stat-detail">300 / 1956 MB</div>
             </div>
 
             <div class="stat-card">
@@ -306,11 +301,11 @@
         </div>
 
         <div class="table-section">
-            <div class="table-header">Top Processes</div>
+            <div class="table-header">Top 5 Processes</div>
             <table>
                 <thead><tr><th>PID</th><th>User</th><th>CPU</th><th>MEM</th><th>Command</th></tr></thead>
                 <tbody>
-                    <tr><td>14053</td><td>root</td><td>0.6%</td><td>0.0%</td><td class="cmd">kworker/0:1-events</td></tr><tr><td>14310</td><td>root</td><td>0.2%</td><td>2.0%</td><td class="cmd">fwupd</td></tr><tr><td>668</td><td>root</td><td>0.1%</td><td>0.4%</td><td class="cmd">vmtoolsd</td></tr><tr><td>14156</td><td>tipwaree</td><td>0.0%</td><td>0.3%</td><td class="cmd">sshd</td></tr><tr><td>7654</td><td>tipwaree</td><td>0.0%</td><td>0.3%</td><td class="cmd">sshd</td></tr>
+                    <tr><td>16271</td><td>root</td><td>0.4%</td><td>0.0%</td><td class="cmd">kworker/0:0-events</td></tr><tr><td>16453</td><td>root</td><td>0.4%</td><td>0.0%</td><td class="cmd">kworker/0:3-events</td></tr><tr><td>15432</td><td>tipwaree</td><td>0.2%</td><td>0.3%</td><td class="cmd">sshd</td></tr><tr><td>668</td><td>root</td><td>0.1%</td><td>0.4%</td><td class="cmd">vmtoolsd</td></tr><tr><td>15119</td><td>systemd+</td><td>0.0%</td><td>0.4%</td><td class="cmd">systemd-network</td></tr>
                 </tbody>
             </table>
         </div>

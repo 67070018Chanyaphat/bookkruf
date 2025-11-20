@@ -16,7 +16,7 @@ MEM_USED=$(free -m | awk '/Mem:/ { print $3 }')
 MEM_PERCENT=$(awk "BEGIN {printf \"%.0f\", $MEM_USED/$MEM_TOTAL*100}")
 DISK_USAGE=$(df -h / | awk '$NF=="/" {print $5}' | sed 's/%//')
 DISK_TEXT=$(df -h / | awk '$NF=="/" {print $3 " / " $2}')
-LAST_UPDATED=$(date "+%d %B %Y • %H:%M")
+LAST_UPDATED=$(TZ='Asia/Bangkok' date "+%d %B %Y • %H:%M")
 
 PROCESS_LIST=$(ps -eo pid,user,%cpu,%mem,comm --sort=-%cpu | head -n 6 | tail -n 5 | awk '{print "<tr><td>"$1"</td><td>"$2"</td><td>"$3"%</td><td>"$4"%</td><td class=\"cmd\">"$5"</td></tr>"}' | tr -d '\n')
 
