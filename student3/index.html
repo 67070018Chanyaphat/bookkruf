@@ -4,58 +4,16 @@
   <meta charset="UTF-8" />
   <title>Server Stats – 67070139</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      margin: 0;
-      padding: 2rem;
-      background: #f0f2f5;
-      color: #333;
-    }
-
-    .card {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      max-width: 550px;
-      margin: 0 auto;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      animation: fadeIn 0.4s ease-in-out;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-      color: #222;
-    }
-
-    .stat-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .label {
-      font-weight: 600;
-    }
-
-    .value {
-      font-family: monospace;
-      color: #444;
-    }
-
-    .footer {
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
-      text-align: center;
-      color: #777;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; background: #f0f2f5; color: #333; }
+    .card { background: #fff; padding: 1.5rem; border-radius: 12px; max-width: 700px; margin: 0 auto 1.5rem auto; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    h1 { text-align: center; margin-bottom: 1rem; color: #222; }
+    .stat-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+    .stat-row:last-child { border-bottom: none; }
+    .label { font-weight: 600; }
+    .value { font-family: monospace; color: #444; }
+    #usageChart { max-height: 250px; }
   </style>
 </head>
 <body>
@@ -63,33 +21,38 @@
   <h1>My Server Status – 67070139</h1>
 
   <div class="card">
-    <div class="stat-row">
-      <span class="label">Hostname : </span>
-      <span class="value">puwanasserver</span>
-    </div>
-    
-    <div class="stat-row">
-      <span class="label">Last update : </span>
-      <span class="value">2025-11-20 18:06:22</span>
-    </div>
-
-    <div class="stat-row">
-      <span class="label">CPU Usage : </span>
-      <span class="value">0.00, 0.00, 0.10</span>
-    </div>
-
-    <div class="stat-row">
-      <span class="label">Memory Usage: </span>
-      <span class="value">524 / 7894 MB</span>
-    </div>
-
-    <div class="stat-row">
-      <span class="label">Storage Usage : </span>
-      <span class="value">2.6G / 9.8G</span>
-    </div>
+    <div class="stat-row"><span class="label">Hostname :</span><span class="value">puwanasserver</span></div>
+    <div class="stat-row"><span class="label">Last update :</span><span class="value">2025-11-20 18:40:50</span></div>
+    <div class="stat-row"><span class="label">CPU Usage :</span><span class="value">1.2% (1.57, 0.47, 0.16)</span></div>
+    <div class="stat-row"><span class="label">Memory Usage :</span><span class="value">512 / 7894 MB (6.5%)</span></div>
+    <div class="stat-row"><span class="label">Storage Usage :</span><span class="value">2.6G / 9.8G (28%)</span></div>
   </div>
 
-  <p class="footer"> Bash Script Ubuntu Server</p>
+  <div class="card">
+    <h2 style="margin-top:0;margin-bottom:1rem;">Resource Usage (%)</h2>
+    <canvas id="usageChart"></canvas>
+  </div>
+
+  <script>
+    const cpuPct=1.2; 
+    const memPct=6.5;
+    const diskPct=28;
+
+    const ctx=document.getElementById('usageChart').getContext('2d');
+    new Chart(ctx,{
+      type:'bar',
+      data:{
+        labels:['CPU','Memory','Storage'],
+        datasets:[{label:'Usage (%)',data:[cpuPct,memPct,diskPct],borderWidth:1}]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        scales:{y:{beginAtZero:true,max:100,ticks:{stepSize:10}}},
+        plugins:{legend:{display:false}}
+      }
+    });
+  </script>
 
 </body>
 </html>
