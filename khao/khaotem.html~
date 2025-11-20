@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --col-bg: #fff0f5;      
+            --col-text: #9c7682;    
+            --col-lavender: #e6dff0;
+            --col-blue: #c3e4f7;    
+            --col-pink: #f7cce0;    
+            --border-color: #fcebf2;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--col-bg);
+            background-image: radial-gradient(var(--col-text) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            color: var(--col-text);
+            margin: 0; padding: 40px;
+            display: flex; justify-content: center; min-height: 100vh;
+        }
+        .container { width: 100%; max-width: 1000px; }
+        .header {
+            margin-bottom: 40px; padding: 20px; border-radius: 16px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex; justify-content: space-between; align-items: end;
+            background: rgba(255,255,255,0.8); backdrop-filter: blur(5px);
+        }
+        h1 { margin: 0; font-weight: 700; font-size: 2rem; letter-spacing: -0.5px; }
+        .info-section {
+            background: #fff; padding: 25px; border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(156, 118, 130, 0.05);
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px; border: 1px solid var(--border-color); margin-bottom: 30px;
+        }
+        .info-box small { display: block; opacity: 0.6; font-size: 0.8rem; margin-bottom: 4px; font-weight: 500;}
+        .info-box span { display: block; font-weight: 700; font-size: 1.1rem; }
+        .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin-bottom: 30px; }
+        .stat-card {
+            background: #fff; border-radius: 20px; padding: 25px;
+            text-align: center; box-shadow: 0 5px 20px rgba(156, 118, 130, 0.05);
+            border: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(156, 118, 130, 0.15); }
+        .stat-header { display: flex; align-items: center; gap: 8px; margin-bottom: 15px; opacity: 0.8; font-weight: 700; }
+        .icon { width: 20px; height: 20px; stroke-width: 2.5; }
+        .pie-chart {
+            width: 130px; height: 130px; border-radius: 50%;
+            background: conic-gradient(var(--color) var(--percent), #fafafa 0);
+            position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 15px;
+        }
+        .pie-chart::after {
+            content: attr(data-val); width: 90px; height: 90px; background: white;
+            border-radius: 50%; position: absolute; display: flex; justify-content: center; align-items: center;
+            font-weight: 700; font-size: 1.5rem; color: var(--col-text);
+        }
+        .table-section {
+            background: white; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 5px 20px rgba(156, 118, 130, 0.05); border: 1px solid var(--border-color);
+        }
+        .table-header { background: rgba(247, 204, 224, 0.15); padding: 15px 25px; font-weight: 700; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+        th { text-align: left; padding: 15px 25px; opacity: 0.6; font-weight: 500; font-size: 0.85rem; text-transform: uppercase; }
+        td { padding: 15px 25px; border-bottom: 1px solid var(--border-color); color: var(--col-text); }
+        tr:last-child td { border-bottom: none; }
+        .cmd { background: rgba(195, 228, 247, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; color: #7baec9; font-weight: 500; }
+        @media (max-width: 768px) { .stats-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>System Dashboard</h1>
+            <div class="timestamp">Updated: {{LAST_UPDATED}}</div>
+        </div>
+
+        <div class="info-section">
+            <div class="info-box"><small>OS</small><span>{{OS_NAME}}</span></div>
+            <div class="info-box"><small>Host</small><span>{{HOST_NAME}}</span></div>
+            <div class="info-box"><small>IP Addr</small><span>{{IP_ADDR}}</span></div>
+            <div class="info-box"><small>Uptime</small><span>{{UPTIME_INFO}}</span></div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <svg class="icon" style="stroke: var(--col-blue);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+                    CPU Load
+                </div>
+                <div class="pie-chart" style="--percent: {{CPU_USAGE}}%; --color: var(--col-blue);" data-val="{{CPU_USAGE}}%"></div>
+                <div class="stat-detail">Processing Power</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <svg class="icon" style="stroke: var(--col-lavender);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    Memory
+                </div>
+                <div class="pie-chart" style="--percent: {{MEM_PERCENT}}%; --color: var(--col-lavender);" data-val="{{MEM_PERCENT}}%"></div>
+                <div class="stat-detail">{{MEM_USED}} / {{MEM_TOTAL}} MB</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <svg class="icon" style="stroke: var(--col-pink);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                    Storage
+                </div>
+                <div class="pie-chart" style="--percent: {{DISK_USAGE}}%; --color: var(--col-pink);" data-val="{{DISK_USAGE}}%"></div>
+                <div class="stat-detail">{{DISK_TEXT}}</div>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <div class="table-header">Top Processes</div>
+            <table>
+                <thead><tr><th>PID</th><th>User</th><th>CPU</th><th>MEM</th><th>Command</th></tr></thead>
+                <tbody>
+                    {{PROCESS_LIST}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
