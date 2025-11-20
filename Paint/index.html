@@ -66,7 +66,7 @@
     }
 
     .card {
-      background: rgba(45, 55, 72, 0.9); /* โปร่งแสงนิดหน่อยเพื่อให้เห็นดาว */
+      background: rgba(45, 55, 72, 0.9);
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -101,7 +101,8 @@
   <div class="stars"></div>
 
   <header>
-    <h1>Paint's Server Monitor</h1>
+    <h1>Server Monitor 🟢</h1>
+    <div class="subtitle">Updates every 10 minutes via GitHub Cronjob</div>
   </header>
 
   <div class="dashboard-grid">
@@ -161,12 +162,12 @@
     Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
 
     let statusChart = new Chart(ctx, {
-      type: 'bar',
+      type: 'pie', // เปลี่ยนเป็น pie
       data: {
         labels: ['CPU Used', 'RAM Used', 'Disk Used'],
         datasets: [{
           label: 'Percentage (%)',
-          data: [0, 0, 0],
+          data: [0, 0, 0], // ค่าเริ่มต้น
           backgroundColor: [
             'rgba(252, 129, 129, 0.8)', // CPU Red
             'rgba(99, 179, 237, 0.8)',  // RAM Blue
@@ -177,20 +178,27 @@
             '#63b3ed',
             '#f6e05e'
           ],
-          borderWidth: 1,
-          borderRadius: 4
+          borderWidth: 1
         }]
       },
       options: {
-        indexAxis: 'y', // แนวนอน
         responsive: true,
         maintainAspectRatio: false,
-        scales: {
-          x: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,0.05)' } },
-          y: { grid: { display: false } }
-        },
         plugins: {
-          legend: { display: false }
+          legend: {
+            position: 'bottom', // ตำแหน่งของ Legend
+            labels: {
+              color: '#a0aec0' // สีของตัวอักษรใน Legend
+            }
+          },
+          title: {
+            display: true,
+            text: 'System Resource Usage',
+            color: '#f7fafc', // สีของ Title
+            font: {
+              size: 16
+            }
+          }
         }
       }
     });
@@ -223,7 +231,7 @@
       const script = document.createElement('script');
       script.id = 'data-script';
       // *** สำคัญ: ใส่ ?t=... เพื่อบังคับ Browser / GitHub ไม่ให้จำ Cache เก่า ***
-      script.src = 'system_data.js?t=' + new Date().getTime(); 
+      script.src = 'system_data.js?t=' + new Date().getTime();  
       
       // กรณีหาไฟล์ไม่เจอ (Error Handling)
       script.onerror = function() {
@@ -236,7 +244,10 @@
     // --- Start ---
     window.onload = function() {
       loadData(); // โหลดครั้งแรกทันที
-      setInterval(loadData, 60000); 
+      
+      // ตั้งเวลาโหลดใหม่ทุกๆ 60 วินาที (1 นาที)
+      // ไม่จำเป็นต้องเร็วกว่านี้เพราะ Cronjob ทำงานทุก 10 นาที
+      setInterval(loadData, 60000);  
     };
   </script>
 </body>
