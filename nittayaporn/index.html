@@ -37,25 +37,25 @@
     <!-- CPU -->
     <div class="card">
       <h2 class="text-lg font-semibold mb-2">CPU Usage</h2>
-      <p class="text-2xl font-bold mb-2 text-purple-700">__CPU_PERCENT__</p>
+      <p class="text-2xl font-bold mb-2 text-purple-700">8.6%</p>
       <div class="w-full bg-purple-200 h-3 rounded">
-        <div class="bg-purple-600 h-3 rounded" style="width: __CPU_BAR__;"></div>
+        <div class="bg-purple-600 h-3 rounded" style="width: 8.6%;"></div>
       </div>
     </div>
 
     <!-- Memory -->
     <div class="card">
       <h2 class="text-lg font-semibold mb-2">Memory Usage</h2>
-      <p class="text-2xl font-bold mb-2 text-purple-700">__MEM_TEXT__</p>
+      <p class="text-2xl font-bold mb-2 text-purple-700">474 / 3868 MB (12.3%)</p>
       <div class="w-full bg-purple-200 h-3 rounded">
-        <div class="bg-purple-600 h-3 rounded" style="width: __MEM_BAR__;"></div>
+        <div class="bg-purple-600 h-3 rounded" style="width: 12.3%;"></div>
       </div>
     </div>
 
     <!-- Storage -->
     <div class="card flex flex-col items-center">
       <h2 class="text-lg font-semibold mb-2">Storage (/)</h2>
-      <p class="text-sm mb-2 text-purple-800">__STORAGE_TEXT__</p>
+      <p class="text-sm mb-2 text-purple-800">7G / 20G (35% used)</p>
       <canvas id="storageChart" width="140" height="140"></canvas>
     </div>
 
@@ -77,7 +77,16 @@
       </thead>
 
       <tbody class="divide-y divide-purple-300">
-__PROCESS_ROWS__
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">2150</td><td>nittaya+</td><td>200</td><td>0.1</td><td>ps aux --sort=-%cpu</td></tr>
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">1473</td><td>nittaya+</td><td>0.7</td><td>0.1</td><td>sshd: nittayaporn_plai@pts/0</td></tr>
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">667</td><td>root</td><td>0.3</td><td>0.2</td><td>/usr/bin/vmtoolsd</td></tr>
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">33</td><td>root</td><td>0.1</td><td>0.0</td><td>[kworker/0:2-events]</td></tr>
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">1</td><td>root</td><td>0.1</td><td>0.3</td><td>/sbin/init</td></tr>
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">1587</td><td>root</td><td>0.1</td><td>0.0</td><td>[kworker/1:0-events]</td></tr>
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">23</td><td>root</td><td>0.0</td><td>0.0</td><td>[migration/1]</td></tr>
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">487</td><td>root</td><td>0.0</td><td>0.6</td><td>/sbin/multipathd -d -s</td></tr>
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">433</td><td>root</td><td>0.0</td><td>0.4</td><td>/usr/lib/systemd/systemd-journald</td></tr>
+<tr class="hover:bg-purple-100/40 transition"><td class="py-2">54</td><td>root</td><td>0.0</td><td>0.0</td><td>[kworker/u258:1-events_power_efficient]</td></tr>
       </tbody>
     </table>
 
@@ -85,7 +94,7 @@ __PROCESS_ROWS__
 
   <!-- Lastest Update -->
   <p class="text-center text-xs text-slate-600 mt-4">
-	    Last update: __UPDATED_AT__
+	    Last update: 20 Nov 2025 13:00:01
   </p>
   <!-- CHART SCRIPT -->
   <script>
@@ -96,7 +105,7 @@ __PROCESS_ROWS__
       data: {
         labels: ["Used", "Free"],
         datasets: [{
-          data: [__STORAGE_USED__, __STORAGE_FREE__],
+          data: [7, 13],
           backgroundColor: ["#9333ea", "#e9d5ff"],
           borderWidth: 0
         }]
