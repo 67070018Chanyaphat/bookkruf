@@ -36,5 +36,5 @@ sed -i "/<tbody id=\"process-table\">/,/<\/tbody>/c\<tbody id=\"process-table\">
 
 git add .
 git commit -m "Auto update: $(date '+%Y-%m-%d %H:%M:%S')" || exit 0
-git push origin main
+git push origin soupawich
 
