@@ -87,6 +87,9 @@ th {
 td {
 	color: #fff;
 }
+.last-update {
+	color:white;
+}
 </style>
 </head>
 <body>
@@ -95,15 +98,15 @@ td {
 	<div class="box-horizon">
 		<div class="box-1">
 			<div class="top">CPU Usage</div>
-			<div class="down"><h2>12%</h2></div>
+			<div class="down"><h2>{{ CPU_USAGE }}</h2></div>
 		</div>
 		<div class="box-2">
 			<div class="top">Memory Usage</div>
-			<div class="down"><h2>49%</h2></div>
+			<div class="down"><h2>{{ MEM_USAGE }}</h2></div>
 		</div>
 		<div class="box-3">
 			<div class="top">Storage Usage</div>
-			<div class="down"><h2>56%</h2></div>
+			<div class="down"><h2>{{ STORAGE_USAGE }}</h2></div>
 		</div>
 	</div>
 
@@ -120,13 +123,12 @@ td {
 				</tr>
 			</thead>
 			<tbody>
-				<tr><td>1864</td><td>yossaphol</td><td>1.2%</td><td>12.5%</td><td>gnome-shell</td></tr>
-				<tr><td>2743</td><td>yossaphol</td><td>0.5%</td><td>11.8%</td><td>firefox</td></tr>
-				<tr><td>2679</td><td>yossaphol</td><td>0.3%</td><td>0.2%</td><td>sshd-session</td></tr>
-				<tr><td>3883</td><td>yossaphol</td><td>0.2%</td><td>9.8%</td><td>nautilus</td></tr>
-				<tr><td>5911</td><td>yossaphol</td><td>0.1%</td><td>2.8%</td><td>file://</td></tr>
+				{{ TOP_PROCESS_LIST }}
 			</tbody>
 		</table>
+	</div>
+	<div class="last-update">
+   		 <h3>Last Updated: {{ LAST_UPDATED }}</h3>
 	</div>
 </div>
 </body>
