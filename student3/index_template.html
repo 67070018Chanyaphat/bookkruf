@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <title>Server Stats – 67070139</title>
+  <title>Server Stats – {{member}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
@@ -60,32 +60,32 @@
 </head>
 <body>
 
-  <h1>My Server Status – 67070139</h1>
+  <h1>My Server Status – {{member}}</h1>
 
   <div class="card">
     <div class="stat-row">
       <span class="label">Hostname : </span>
-      <span class="value">puwanasserver</span>
+      <span class="value">{{hostname}}</span>
     </div>
     
     <div class="stat-row">
       <span class="label">Last update : </span>
-      <span class="value">2025-11-20 18:06:22</span>
+      <span class="value">{{timestamp}}</span>
     </div>
 
     <div class="stat-row">
       <span class="label">CPU Usage : </span>
-      <span class="value">0.00, 0.00, 0.10</span>
+      <span class="value">{{cpu}}</span>
     </div>
 
     <div class="stat-row">
       <span class="label">Memory Usage: </span>
-      <span class="value">524 / 7894 MB</span>
+      <span class="value">{{mem_used}} / {{mem_total}} MB</span>
     </div>
 
     <div class="stat-row">
       <span class="label">Storage Usage : </span>
-      <span class="value">2.6G / 9.8G</span>
+      <span class="value">{{disk_used}} / {{disk_total}}</span>
     </div>
   </div>
 

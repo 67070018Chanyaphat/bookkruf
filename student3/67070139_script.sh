@@ -11,7 +11,7 @@ MEM_TOTAL_MB="$(free -m | awk '/Mem:/ {print $2}')"
 DISK_ROOT_USED="$(df -h / | awk 'NR==2 {print $3}')"
 DISK_ROOT_TOTAL="$(df -h / | awk 'NR==2 {print $2}')"
 
-sed "s|{{hostname}}|$HOSTNAME|g" index.template.html \
+sed "s|{{hostname}}|$HOSTNAME|g" index_template.html \
 | sed "s|{{timestamp}}|$TIMESTAMP|g" \
 | sed "s|{{cpu}}|$CPU_LOAD_AVG|g" \
 | sed "s|{{mem_used}}|$MEM_USED_MB|g" \
