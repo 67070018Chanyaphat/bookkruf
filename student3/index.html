@@ -5,15 +5,62 @@
   <title>Server Stats – 67070139</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+  	setInterval(() => {
+    		location.reload();
+  	}, 600000);
+	</script>
+
   <style>
-    body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; background: #f0f2f5; color: #333; }
-    .card { background: #fff; padding: 1.5rem; border-radius: 12px; max-width: 700px; margin: 0 auto 1.5rem auto; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-    h1 { text-align: center; margin-bottom: 1rem; color: #222; }
-    .stat-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #eee; }
-    .stat-row:last-child { border-bottom: none; }
-    .label { font-weight: 600; }
-    .value { font-family: monospace; color: #444; }
-    #usageChart { max-height: 250px; }
+    body { 
+	    font-family: system-ui, sans-serif; margin: 0;
+	    padding: 2rem; background: #f0f2f5; color: #333;
+    }
+    .card {
+	    background: #fff;
+	    padding: 1.5rem;
+	    border-radius: 12px;
+	    max-width: 900px;
+	    margin: 0 auto 1.5rem auto;
+	    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+	    text-align: center;
+	    margin-bottom: 1rem;
+	    color: #222;
+    }
+    .stat-row {
+	    display: flex;
+	    justify-content: space-between;
+	    padding: 0.5rem 0;
+	    border-bottom: 1px solid #eee;
+    }
+    .stat-row:last-child {
+	    border-bottom: none;
+    }
+    .label {
+	    font-weight: 600;
+    }
+    .value {
+	    font-family: monospace; color: #444;
+    }
+    #usageChart {
+	    max-height: 250px;
+    }
+    .top-table {
+	    width: 100%;
+	    border-collapse: collapse;
+	    font-size: 0.85rem; 
+	    margin-top: 0.5rem;
+    }
+    .top-table th, .top-table td {
+	    border: 1px solid #ddd;
+	    padding: 0.3rem 0.5rem;
+	    text-align: left;
+    }
+    .top-table th {
+	    background: #f3f4f6;
+    }
   </style>
 </head>
 <body>
@@ -21,11 +68,26 @@
   <h1>My Server Status – 67070139</h1>
 
   <div class="card">
-    <div class="stat-row"><span class="label">Hostname :</span><span class="value">puwanasserver</span></div>
-    <div class="stat-row"><span class="label">Last update :</span><span class="value">2025-11-20 18:52:06</span></div>
-    <div class="stat-row"><span class="label">CPU Usage :</span><span class="value">60.8% (2.43, 2.05, 1.24)</span></div>
-    <div class="stat-row"><span class="label">Memory Usage :</span><span class="value">519 / 7894 MB (6.6%)</span></div>
-    <div class="stat-row"><span class="label">Storage Usage :</span><span class="value">2.6G / 9.8G (28%)</span></div>
+    <div class="stat-row">
+	    <span class="label">Hostname :</span>
+	    <span class="value">puwanasserver</span>
+    </div>
+    <div class="stat-row">
+	    <span class="label">Last update :</span>
+	    <span class="value">2025-11-20 21:32:49</span>
+    </div>
+    <div class="stat-row">
+	    <span class="label">CPU Usage :</span>
+	    <span class="value">54.5% (2.18, 2.22, 2.19)</span>
+    </div>
+    <div class="stat-row">
+	    <span class="label">Memory Usage :</span>
+	    <span class="value">519 / 7894 MB (6.6%)</span>
+    </div>
+    <div class="stat-row">
+	    <span class="label">Storage Usage :</span>
+	    <span class="value">2.6G / 9.8G (28%)</span>
+    </div>
   </div>
 
   <div class="card">
@@ -33,8 +95,19 @@
     <canvas id="usageChart"></canvas>
   </div>
 
+  <div class="card">
+    <h2 style="margin-top:0;margin-bottom:0.5rem;">Top Processes (CPU)</h2>
+    <table class="top-table"><thead><tr><th>PID</th><th>User</th><th>%CPU</th><th>%MEM</th><th>Command</th></tr></thead><tbody>
+<tr><td>8089</td><td>puwanas</td><td>78.6</td><td>0.0</td><td>yes</td></tr>
+<tr><td>4390</td><td>puwanas</td><td>7.7</td><td>0.1</td><td>sshd</td></tr>
+<tr><td>5369</td><td>puwanas</td><td>2.8</td><td>0.1</td><td>sshd</td></tr>
+<tr><td>8418</td><td>root</td><td>1.3</td><td>0.0</td><td>kworker/u258:3-events_unbound</td></tr>
+<tr><td>8458</td><td>root</td><td>1.3</td><td>0.0</td><td>kworker/u260:5-events_unbound</td></tr>
+</tbody></table>
+  </div>
+
   <script>
-    const cpuPct=60.8; 
+    const cpuPct=54.5;
     const memPct=6.6;
     const diskPct=28;
 
