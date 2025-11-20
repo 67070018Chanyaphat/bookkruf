@@ -30,3 +30,7 @@ done <<< "$PROCESS"
 
 sed -i "/<tbody id=\"process-table\">/,/<\/tbody>/c\<tbody id=\"process-table\">$TABLE_ROWS</tbody>" "$HTML"
 
+cd "/home/ksoupawich/bookkruf/soupawich"
+git add .
+git commit -m "Auto update: $(date '+%Y-%m-%d %H:%M:%S')" || exit 0
+git push origin main
