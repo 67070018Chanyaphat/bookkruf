@@ -1,0 +1,280 @@
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+[soupawich f7fdec5] Auto update: 2025-11-20 13:55:01
+ 2 files changed, 4 insertions(+)
+ create mode 100644 soupawich/.soupawich_script.sh.swp
+fatal: could not read Username for 'https://github.com': No such device or address
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+On branch soupawich
+Your branch is ahead of 'origin/soupawich' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../cron.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+sed: can't read ./soupawich.html: No such file or directory
+[soupawich 1c0a9d3] Auto update: 2025-11-20 13:57:02
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+fatal: could not read Username for 'https://github.com': No such device or address
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 4f5850d] Auto update: 2025-11-20 13:58:01
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ create mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/67070018Chanyaphat/bookkruf.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich d802f95] Auto update: 2025-11-20 13:59:02
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/67070018Chanyaphat/bookkruf.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 86e165b] Auto update: 2025-11-20 14:00:02
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/67070018Chanyaphat/bookkruf.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 212b768] Auto update: 2025-11-20 14:01:01
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+ delete mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   3bf07bf..212b768  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich fdc1e63] Auto update: 2025-11-20 14:02:02
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   212b768..fdc1e63  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich efc3747] Auto update: 2025-11-20 14:03:02
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   fdc1e63..efc3747  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 69e72d1] Auto update: 2025-11-20 14:04:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   efc3747..69e72d1  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 917c544] Auto update: 2025-11-20 14:05:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   69e72d1..917c544  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 205db9f] Auto update: 2025-11-20 14:06:02
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   917c544..205db9f  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich a5c1f50] Auto update: 2025-11-20 14:07:02
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   205db9f..a5c1f50  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 142bddb] Auto update: 2025-11-20 14:08:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   a5c1f50..142bddb  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 4d9a772] Auto update: 2025-11-20 14:09:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   142bddb..4d9a772  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 7419e30] Auto update: 2025-11-20 14:10:02
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   4d9a772..7419e30  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 0fab400] Auto update: 2025-11-20 14:11:02
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   7419e30..0fab400  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich cadc98f] Auto update: 2025-11-20 14:12:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   0fab400..cadc98f  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich e1f152e] Auto update: 2025-11-20 14:13:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   cadc98f..e1f152e  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich ac91e4e] Auto update: 2025-11-20 14:14:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   e1f152e..ac91e4e  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 11e4704] Auto update: 2025-11-20 14:15:02
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   ac91e4e..11e4704  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 65a4fcb] Auto update: 2025-11-20 14:16:02
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   11e4704..65a4fcb  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 93fba87] Auto update: 2025-11-20 14:17:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   65a4fcb..93fba87  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 0688cb0] Auto update: 2025-11-20 14:18:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   93fba87..0688cb0  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich ac58b18] Auto update: 2025-11-20 14:19:01
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ create mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   0688cb0..ac58b18  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich ceddae2] Auto update: 2025-11-20 14:20:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   ac58b18..ceddae2  soupawich -> soupawich
+/home/ksoupawich/bookkruf/soupawich/soupawich_script.sh: line 6: cd: /home/it67070018/bookkruf/soupawich: No such file or directory
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 4383e75] Auto update: 2025-11-20 14:23:02
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   3f37301..4383e75  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 2d328f0] Auto update: 2025-11-20 14:24:02
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ create mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   4383e75..2d328f0  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich bff1d59] Auto update: 2025-11-20 14:25:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   2d328f0..bff1d59  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 30bccc3] Auto update: 2025-11-20 14:26:01
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   bff1d59..30bccc3  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 53295b0] Auto update: 2025-11-20 14:27:01
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+ delete mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   30bccc3..53295b0  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich ed7da97] Auto update: 2025-11-20 14:28:02
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   53295b0..ed7da97  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich aadf977] Auto update: 2025-11-20 14:29:01
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   c760efc..aadf977  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich af062fb] Auto update: 2025-11-20 14:30:01
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+ create mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   aadf977..af062fb  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich 462c6f3] Auto update: 2025-11-20 14:31:01
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+ delete mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   af062fb..462c6f3  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich dfb2680] Auto update: 2025-11-20 14:32:02
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   462c6f3..dfb2680  soupawich -> soupawich
+sed: -e expression #1, char 70: unknown command: `<'
+[soupawich f7eeabd] Auto update: 2025-11-20 14:33:01
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+ create mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   a142fb9..f7eeabd  soupawich -> soupawich
+sed: -e expression #1, char 68: unterminated address regex
+[soupawich 657eb35] Auto update: 2025-11-20 14:34:01
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   ef8a22d..657eb35  soupawich -> soupawich
+sed: -e expression #1, char 69: unknown command: `<'
+[soupawich 08fbda5] Auto update: 2025-11-20 14:35:01
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   1e5e671..08fbda5  soupawich -> soupawich
+sed: -e expression #1, char 69: unknown command: `<'
+[soupawich e0db8ae] Auto update: 2025-11-20 14:36:02
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+ create mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   08fbda5..e0db8ae  soupawich -> soupawich
+[soupawich 6e40979] Auto update: 2025-11-20 14:37:02
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   e2e6ccd..6e40979  soupawich -> soupawich
+[soupawich 907d718] Auto update: 2025-11-20 14:38:01
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+ create mode 100644 soupawich/.soupawich.html.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   b1a7117..907d718  soupawich -> soupawich
+[soupawich 9bdd7ae] Auto update: 2025-11-20 14:39:01
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+ delete mode 100644 soupawich/.soupawich.html.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   907d718..9bdd7ae  soupawich -> soupawich
+[soupawich 85b1584] Auto update: 2025-11-20 14:40:01
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   7a3993b..85b1584  soupawich -> soupawich
+[soupawich 3661d67] Auto update: 2025-11-20 14:41:02
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+ create mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   85b1584..3661d67  soupawich -> soupawich
+[soupawich 8a4eec9] Auto update: 2025-11-20 14:42:01
+ 3 files changed, 276 insertions(+), 2 deletions(-)
+ create mode 100644 cron.log
+ delete mode 100644 soupawich/.soupawich_script.sh.swp
+To https://github.com/67070018Chanyaphat/bookkruf.git
+   3661d67..8a4eec9  soupawich -> soupawich
