@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Monitor Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg-color: #1a202c;
+      --card-bg: #2d3748;
+      --text-primary: #f7fafc;
+      --text-secondary: #a0aec0;
+      --accent: #63b3ed;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* --- Background Animation (Stars) --- */
+    .stars {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1; pointer-events: none;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      opacity: 0;
+      animation: star-wink 5s infinite;
+    }
+    .stars:nth-child(2) { background-position: 50% 50%; animation-delay: 2.5s; }
+    @keyframes star-wink {
+      0% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    /* --- Layout --- */
+    header { margin-bottom: 30px; text-align: center; z-index: 1; }
+    h1 { font-weight: 600; font-size: 1.8rem; margin: 0; color: var(--text-primary); }
+    .subtitle { font-size: 0.9rem; color: var(--text-secondary); margin-top: 5px; }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+      z-index: 1;
+    }
+
+    .card {
+      background: rgba(45, 55, 72, 0.9); /* โปร่งแสงนิดหน่อยเพื่อให้เห็นดาว */
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(5px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+    .stat-label { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+    .stat-value { font-size: 2rem; font-weight: 700; margin: 8px 0; color: var(--text-primary); }
+    .stat-unit { font-size: 1rem; color: var(--text-secondary); font-weight: normal; margin-left: 2px; }
+    .stat-detail { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
+
+    .chart-container {
+      grid-column: 1 / -1;
+      height: 320px;
+      position: relative;
+      background: rgba(45, 55, 72, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars"></div>
+  <div class="stars"></div>
+
+  <header>
+    <h1>Server Monitor 🟢</h1>
+    <div class="subtitle">Updates every 10 minutes via GitHub Cronjob</div>
+  </header>
+
+  <div class="dashboard-grid">
+    <div class="card">
+      <span class="stat-label">Last Update</span>
+      <div class="stat-value" id="time" style="font-size: 1.8rem; font-family: monospace;">--:--:--</div>
+      <div class="stat-detail">Server Time</div>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">CPU Load</span>
+      <div class="stat-value"><span id="cpu">--</span><span class="stat-unit">%</span></div>
+      <div class="stat-detail">Processor Usage</div>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Memory</span>
+      <div class="stat-value"><span id="mem-percent">--</span><span class="stat-unit">%</span></div>
+      <div class="stat-detail" id="mem-detail">-- / -- GB</div>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Disk Usage</span>
+      <div class="stat-value"><span id="disk">--</span><span class="stat-unit">%</span></div>
+      <div class="stat-detail">Root Partition (/)</div>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Network Traffic</span>
+      <div style="margin-top: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+          <span style="color: #a0aec0;">Download</span>
+          <span style="color: #68d391; font-weight: bold;">⬇ <span id="net-down">--</span> MB/s</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: #a0aec0;">Upload</span>
+          <span style="color: #63b3ed; font-weight: bold;">⬆ <span id="net-up">--</span> MB/s</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="stat-label">Core Temp</span>
+      <div class="stat-value"><span id="temp">--</span><span class="stat-unit">°C</span></div>
+      <div class="stat-detail">Thermal Status</div>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="statusChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // --- 1. Chart Configuration ---
+    const ctx = document.getElementById('statusChart').getContext('2d');
+    Chart.defaults.color = '#a0aec0';
+    Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+
+    let statusChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['CPU Used', 'RAM Used', 'Disk Used'],
+        datasets: [{
+          label: 'Percentage (%)',
+          data: [0, 0, 0],
+          backgroundColor: [
+            'rgba(252, 129, 129, 0.8)', // CPU Red
+            'rgba(99, 179, 237, 0.8)',  // RAM Blue
+            'rgba(246, 224, 94, 0.8)'   // Disk Yellow
+          ],
+          borderColor: [
+            '#fc8181',
+            '#63b3ed',
+            '#f6e05e'
+          ],
+          borderWidth: 1,
+          borderRadius: 4
+        }]
+      },
+      options: {
+        indexAxis: 'y', // แนวนอน
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,0.05)' } },
+          y: { grid: { display: false } }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    // --- 2. Function called by data file ---
+    window.updateDashboard = function(data) {
+      console.log("Data received:", data); // Debug ใน Console
+
+      document.getElementById('time').innerText = data.time;
+      document.getElementById('cpu').innerText = data.cpu;
+      document.getElementById('mem-percent').innerText = data.memPercent;
+      document.getElementById('mem-detail').innerText = `${data.memUsed} / ${data.memTotal} GB`;
+      document.getElementById('disk').innerText = data.disk;
+      document.getElementById('net-down').innerText = data.netDown;
+      document.getElementById('net-up').innerText = data.netUp;
+      document.getElementById('temp').innerText = data.temp;
+
+      // Update Chart Data
+      statusChart.data.datasets[0].data = [data.cpu, data.memPercent, data.disk];
+      statusChart.update();
+    };
+
+    // --- 3. Data Loader (JSONP Injection) ---
+    function loadData() {
+      // ลบ Script เก่าออกก่อน (Clean up)
+      const oldScript = document.getElementById('data-script');
+      if (oldScript) oldScript.remove();
+
+      // สร้าง Script Tag ใหม่
+      const script = document.createElement('script');
+      script.id = 'data-script';
+      // *** สำคัญ: ใส่ ?t=... เพื่อบังคับ Browser / GitHub ไม่ให้จำ Cache เก่า ***
+      script.src = 'system_data.js?t=' + new Date().getTime(); 
+      
+      // กรณีหาไฟล์ไม่เจอ (Error Handling)
+      script.onerror = function() {
+        console.error("Error loading system_data.js. Check if the file exists on GitHub.");
+      };
+
+      document.body.appendChild(script);
+    }
+
+    // --- Start ---
+    window.onload = function() {
+      loadData(); // โหลดครั้งแรกทันที
+      
+      // ตั้งเวลาโหลดใหม่ทุกๆ 60 วินาที (1 นาที)
+      // ไม่จำเป็นต้องเร็วกว่านี้เพราะ Cronjob ทำงานทุก 10 นาที
+      setInterval(loadData, 60000); 
+    };
+  </script>
+</body>
+</html>
