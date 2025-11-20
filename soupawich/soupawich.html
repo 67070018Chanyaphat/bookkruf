@@ -2,36 +2,132 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>67070177</title>
+    <title>Soupawich's server</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f2f2f2;
+            background: #f5f5f5;
+            margin: 0;
             padding: 40px;
-	    align-items:center;
+            display: flex;
+            justify-content: center;
         }
-        .box {
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
             background: white;
-            width: 350px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #ccc;
-	    align-items: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
         }
-        .label {
-            font-weight: bold;
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #444;
+        }
+
+        .card p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .updatetime {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+	/* ----- TABLE STYLE ----- */
+        .process-section {
+            margin-top: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        table thead {
+            background: #333;
+            color: white;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        table tbody tr:nth-child(even) {
+            background: #f0f0f0;
         }
     </style>
 </head>
 <body>
 
-<h2>Ubuntu Server Status</h2>
+<div class="container">
+    <h2 class="title">System Status</h2>
 
-<div class="box">
-    <p><span class="label">CPU Usage:</span> 4.5</p>
-    <p><span class="label">Memory Usage:</span> 13.8348</p>
-    <p><span class="label">Disk Usage:</span> 35%</p>
-    <p><span class="label">Last Updated:</span> 2025-11-20 10:50:16</p>
+    <div class="grid">
+        <div class="card">
+            <h3>CPU Usage</h3>
+            <p id="cpu"> 4.8 %</p>
+        </div>
+
+        <div class="card">
+            <h3>Memory Usage</h3>
+            <p id="mem"> 14.03 %</p>
+        </div>
+
+        <div class="card">
+            <h3>Disk Usage</h3>
+            <p id="disk"> 35% </p>
+        </div>
+    </div>
+
+    <div class="updatetime">
+        <h3>Last Updated</h3>
+        <p id="updated"> 2025-11-20 20:00:50 </p>
+    </div>
+
+    <div class="process-section">
+        <h3>Top 10 Processes</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>PID</th>
+                    <th>User</th>
+                    <th>CPU%</th>
+                    <th>MEM%</th>
+                    <th>Command</th>
+                </tr>
+            </thead>
+<tbody id="process-table"><tr><td>4733</td><td>ksoupaw+</td><td>0.6</td><td>0.1</td><td>sshd</td></tr><tr><td>4665</td><td>ksoupaw+</td><td>0.2</td><td>0.1</td><td>top</td></tr><tr><td>709</td><td>root</td><td>0.1</td><td>0.2</td><td>vmtoolsd</td></tr><tr><td>5648</td><td>root</td><td>0.1</td><td>0.0</td><td>kworker/0:2-mm_percpu_wq</td></tr><tr><td>5290</td><td>root</td><td>0.1</td><td>0.0</td><td>kworker/0:1-events</td></tr><tr><td>4673</td><td>root</td><td>0.0</td><td>0.0</td><td>kworker/1:2-events</td></tr><tr><td>4381</td><td>ksoupaw+</td><td>0.0</td><td>0.5</td><td>python3</td></tr><tr><td>493</td><td>root</td><td>0.0</td><td>0.6</td><td>multipathd</td></tr><tr><td>1</td><td>root</td><td>0.0</td><td>0.3</td><td>systemd</td></tr><tr><td>5056</td><td>root</td><td>0.0</td><td>0.0</td><td>kworker/u257:1-events_unbound</td></tr></tbody>
+        </table>
+    </div>
+
 </div>
 
 </body>
