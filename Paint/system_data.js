@@ -1,6 +1,6 @@
 window.updateDashboard({
-  "time": "20:28:01",
-  "cpu": 8,
+  "time": "20:29:01",
+  "cpu": 5,
   "memPercent": 12,
   "memUsed": "0.5",
   "memTotal": 4,
