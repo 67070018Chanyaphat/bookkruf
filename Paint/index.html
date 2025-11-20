@@ -101,8 +101,7 @@
   <div class="stars"></div>
 
   <header>
-    <h1>Server Monitor 🟢</h1>
-    <div class="subtitle">Updates every 10 minutes via GitHub Cronjob</div>
+    <h1>Paint's Server Monitor</h1>
   </header>
 
   <div class="dashboard-grid">
@@ -237,9 +236,6 @@
     // --- Start ---
     window.onload = function() {
       loadData(); // โหลดครั้งแรกทันที
-      
-      // ตั้งเวลาโหลดใหม่ทุกๆ 60 วินาที (1 นาที)
-      // ไม่จำเป็นต้องเร็วกว่านี้เพราะ Cronjob ทำงานทุก 10 นาที
       setInterval(loadData, 60000); 
     };
   </script>
