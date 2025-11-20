@@ -66,7 +66,7 @@
     }
 
     .card {
-      background: rgba(45, 55, 72, 0.9);
+      background: rgba(45, 55, 72, 0.9); /* โปร่งแสงนิดหน่อยเพื่อให้เห็นดาว */
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -86,12 +86,14 @@
 
     .chart-container {
       grid-column: 1 / -1;
-      height: 320px;
+      height: 380px; /* เพิ่มความสูงนิดหน่อยให้ Pie Chart ดูสวย */
       position: relative;
       background: rgba(45, 55, 72, 0.9);
       border-radius: 12px;
       padding: 20px;
       border: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: center;
     }
   </style>
 </head>
@@ -156,56 +158,50 @@
   </div>
 
   <script>
-    // --- 1. Chart Configuration ---
+    // --- 1. Chart Configuration (Modified for Pie Chart) ---
     const ctx = document.getElementById('statusChart').getContext('2d');
     Chart.defaults.color = '#a0aec0';
-    Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
-
+    
     let statusChart = new Chart(ctx, {
-      type: 'pie', // เปลี่ยนเป็น pie
+      type: 'pie', // <--- เปลี่ยนเป็น Pie Chart
       data: {
         labels: ['CPU Used', 'RAM Used', 'Disk Used'],
         datasets: [{
           label: 'Percentage (%)',
-          data: [0, 0, 0], // ค่าเริ่มต้น
+          data: [0, 0, 0],
           backgroundColor: [
-            'rgba(252, 129, 129, 0.8)', // CPU Red
-            'rgba(99, 179, 237, 0.8)',  // RAM Blue
-            'rgba(246, 224, 94, 0.8)'   // Disk Yellow
+            '#fc8181', // CPU Red
+            '#63b3ed', // RAM Blue
+            '#f6e05e'  // Disk Yellow
           ],
-          borderColor: [
-            '#fc8181',
-            '#63b3ed',
-            '#f6e05e'
-          ],
-          borderWidth: 1
+          borderWidth: 0, // ลบขอบออกเพื่อให้ดู Clean ขึ้น
+          hoverOffset: 10 // เวลาเอาเมาส์ชี้แล้วเด้งออกมา
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: {
-            position: 'bottom', // ตำแหน่งของ Legend
-            labels: {
-              color: '#a0aec0' // สีของตัวอักษรใน Legend
-            }
+          legend: { 
+            display: true, // เปิด Legend
+            position: 'bottom', // เอาไว้ด้านล่าง
+            labels: { padding: 20, font: { size: 12 } }
           },
           title: {
             display: true,
-            text: 'System Resource Usage',
-            color: '#f7fafc', // สีของ Title
-            font: {
-              size: 16
-            }
+            text: 'System Container',
+            color: '#f7fafc',
+            font: { size: 16, weight: 'normal' },
+            padding: { bottom: 20 }
           }
         }
+        // ลบ scales (แกน x, y) ออกเพราะ Pie Chart ไม่ใช้
       }
     });
 
     // --- 2. Function called by data file ---
     window.updateDashboard = function(data) {
-      console.log("Data received:", data); // Debug ใน Console
+      console.log("Data received:", data);
 
       document.getElementById('time').innerText = data.time;
       document.getElementById('cpu').innerText = data.cpu;
@@ -223,19 +219,15 @@
 
     // --- 3. Data Loader (JSONP Injection) ---
     function loadData() {
-      // ลบ Script เก่าออกก่อน (Clean up)
       const oldScript = document.getElementById('data-script');
       if (oldScript) oldScript.remove();
 
-      // สร้าง Script Tag ใหม่
       const script = document.createElement('script');
       script.id = 'data-script';
-      // *** สำคัญ: ใส่ ?t=... เพื่อบังคับ Browser / GitHub ไม่ให้จำ Cache เก่า ***
-      script.src = 'system_data.js?t=' + new Date().getTime();  
+      script.src = 'system_data.js?t=' + new Date().getTime(); 
       
-      // กรณีหาไฟล์ไม่เจอ (Error Handling)
       script.onerror = function() {
-        console.error("Error loading system_data.js. Check if the file exists on GitHub.");
+        console.error("Error loading system_data.js");
       };
 
       document.body.appendChild(script);
@@ -243,11 +235,8 @@
 
     // --- Start ---
     window.onload = function() {
-      loadData(); // โหลดครั้งแรกทันที
-      
-      // ตั้งเวลาโหลดใหม่ทุกๆ 60 วินาที (1 นาที)
-      // ไม่จำเป็นต้องเร็วกว่านี้เพราะ Cronjob ทำงานทุก 10 นาที
-      setInterval(loadData, 60000);  
+      loadData();
+      setInterval(loadData, 60000);
     };
   </script>
 </body>
