@@ -8,7 +8,7 @@ HOSTNAME="$(hostname)"
 
 LOAD_AVG_STR="$(uptime | awk -F'load average:' '{print $2}' | xargs)"
 CPU_LOAD_AVG="$LOAD_AVG_STR"
-CPU_CORES="$(nproc --all)"
+CPU_CORES="$(nproc)"
 CPU_LOAD_1MIN="$(echo "$LOAD_AVG_STR" | cut -d',' -f1 | xargs)"
 CPU_PCT="$(awk "BEGIN { if ($CPU_CORES > 0) printf \"%.1f\", ($CPU_LOAD_1MIN / $CPU_CORES) * 100; else print 0 }")"
 
