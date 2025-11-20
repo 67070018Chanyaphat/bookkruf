@@ -27,12 +27,10 @@ while read -r line; do
     PMEM=$(echo "$line" | awk '{print $4}')
     CMD=$(echo "$line" | awk '{print $5}')
 
-    TABLE_ROWS="$TABLE_ROWS
-<tr><td>$PID</td><td>$USER</td><td>$PCPU</td><td>$PMEM</td><td>$CMD</td></tr>"
+    TABLE_ROWS="$TABLE_ROWS<tr><td>$PID</td><td>$USER</td><td>$PCPU</td><td>$PMEM</td><td>$CMD</td></tr>"
 done <<< "$PROCESS"
 
-sed -i "/<tbody id=\"process-table\">/,/<\/tbody>/c<tbody id=\"process-table\">$TABLE_ROWS
-</tbody>" "$HTML"
+sed -i "s|<!--PROCESS_ROWS-->|$TABLE_ROWS|" "$HTML"
 
 git add .
 git commit -m "Auto update: $(date '+%Y-%m-%d %H:%M:%S')" || exit 0
