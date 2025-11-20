@@ -103,31 +103,29 @@
   <div class="stars"></div>
 
   <header>
-    <h1>Server Monitor 🟢</h1>
-    <div class="subtitle">Updates every 10 minutes via GitHub Cronjob</div>
+    <h1>Paint's Server Monitor</h1>
   </header>
 
   <div class="dashboard-grid">
     <div class="card">
-      <span class="stat-label">Last Update</span>
+      <span class="stat-label">Last Time Update</span>
       <div class="stat-value" id="time" style="font-size: 1.8rem; font-family: monospace;">--:--:--</div>
       <div class="stat-detail">Server Time</div>
     </div>
 
     <div class="card">
-      <span class="stat-label">CPU Load</span>
+      <span class="stat-label">CPU Usage</span>
       <div class="stat-value"><span id="cpu">--</span><span class="stat-unit">%</span></div>
       <div class="stat-detail">Processor Usage</div>
-    </div>
-
+  </div>
     <div class="card">
-      <span class="stat-label">Memory</span>
+      <span class="stat-label">Memory Usage</span>
       <div class="stat-value"><span id="mem-percent">--</span><span class="stat-unit">%</span></div>
       <div class="stat-detail" id="mem-detail">-- / -- GB</div>
     </div>
 
     <div class="card">
-      <span class="stat-label">Disk Usage</span>
+      <span class="stat-label">Storage Usage</span>
       <div class="stat-value"><span id="disk">--</span><span class="stat-unit">%</span></div>
       <div class="stat-detail">Root Partition (/)</div>
     </div>
