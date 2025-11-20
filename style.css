@@ -1,61 +1,110 @@
-/* --- Base Styles & Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
 body {
-    /* Use the Ubuntu font, fallback to sans-serif */
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #f4f4f4; /* Light grey background */
-    color: #333; /* Dark grey text */
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5;
+    color: #1a1a1a;
     margin: 0;
-    padding: 0;
-    
-    /* --- Flexbox for Centering --- */
-    /* This centers the .container vertically and horizontally */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 30px;
 }
 
-/* --- Main Content Container --- */
 .container {
-    text-align: center;
-    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 h1 {
-    font-size: 2.5rem; /* Big text */
-    font-weight: 700;
-    margin-bottom: 40px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
 }
 
-/* --- Button Container --- */
-.button-container {
-    /* Arrange buttons in a row, wrap if screen is too small */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.server-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.05);
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Spacing between buttons */
+    flex-direction: column;
 }
 
-/* --- Custom Button Style --- */
-.btn {
-    /* Your requested style */
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
-    
-    /* --- Nice Extras --- */
-    text-decoration: none; /* Remove underline from link */
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-size: 1.1rem;
+.server-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-color: #000;
+}
+
+.card-header {
+    background: #000000;
+    color: #ffffff;
+    padding: 15px;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1rem;
     font-weight: 700;
-    
-    /* --- Smooth Transition --- */
-    transition: all 0.3s ease;
 }
 
-/* --- Hover Effect --- */
-.btn:hover {
-    background-color: #333; /* Darken the black slightly */
-    transform: translateY(-3px); /* Subtle lift effect */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.card-header p {
+    margin: 3px 0 0;
+    font-size: 0.7rem;
+    color: #888;
+    font-family: monospace;
+}
+
+.card-body {
+    padding: 15px;
+    background: #fff;
+}
+
+.card-body strong {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ccc;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 5px;
+}
+
+.card-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-body li {
+    font-size: 0.75rem;
+    color: #333;
+    padding: 5px 0;
+    border-bottom: 1px solid #f9f9f9;
+    display: flex;
+    align-items: center;
+}
+
+.card-body li:last-child {
+    border-bottom: none;
+}
+
+.card-body li::before {
+    content: "•";
+    color: #000;
+    margin-right: 8px;
+    font-size: 0.8rem;
 }
