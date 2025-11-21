@@ -176,3 +176,63 @@ hint: counterpart. If you want to integrate the remote changes, use 'git pull'
 hint: before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 Pushed to GitHub successfully.
+Data updated: 22:20:01 (With Mock Data if needed)
+[main a384bb5] Auto-update stats: 22:20:01
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf
+ ! [rejected]        Paint -> Paint (non-fast-forward)
+error: failed to push some refs to 'https://github.com/67070018Chanyaphat/bookkruf'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Pushed to GitHub successfully.
+Data updated: 23:40:01 (With Mock Data if needed)
+[main f2b4668] Auto-update stats: 23:40:01
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf
+ ! [rejected]        Paint -> Paint (non-fast-forward)
+error: failed to push some refs to 'https://github.com/67070018Chanyaphat/bookkruf'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Pushed to GitHub successfully.
+Data updated: 23:50:01 (With Mock Data if needed)
+[main c0b5f9a] Auto-update stats: 23:50:01
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf
+ ! [rejected]        Paint -> Paint (non-fast-forward)
+error: failed to push some refs to 'https://github.com/67070018Chanyaphat/bookkruf'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Pushed to GitHub successfully.
+Data updated: 00:00:01 (With Mock Data if needed)
+[main 7dcf7bf] Auto-update stats: 00:00:01
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf
+ ! [rejected]        Paint -> Paint (non-fast-forward)
+error: failed to push some refs to 'https://github.com/67070018Chanyaphat/bookkruf'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Pushed to GitHub successfully.
+Data updated: 09:20:01 (With Mock Data if needed)
+[main 4e16f63] Auto-update stats: 09:20:01
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+fatal: unable to access 'https://github.com/67070018Chanyaphat/bookkruf/': SSL: certificate subject name (*.it.kmitl.ac.th) does not match target host name 'github.com'
+Pushed to GitHub successfully.
+Data updated: 09:30:01 (With Mock Data if needed)
+[main 2ae5a36] Auto-update stats: 09:30:01
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+To https://github.com/67070018Chanyaphat/bookkruf
+ ! [rejected]        Paint -> Paint (non-fast-forward)
+error: failed to push some refs to 'https://github.com/67070018Chanyaphat/bookkruf'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Pushed to GitHub successfully.
