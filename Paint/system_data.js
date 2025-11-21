@@ -1,11 +1,11 @@
 window.updateDashboard({
-  "time": "09:30:01",
-  "cpu": 12,
+  "time": "09:56:45",
+  "cpu": 13,
   "memPercent": 12,
   "memUsed": "0.5",
   "memTotal": 4,
   "disk": 48,
-  "netDown": "4.35",
-  "netUp": "1.75",
+  "netDown": "2.29",
+  "netUp": "0.95",
   "temp": 54
 });
