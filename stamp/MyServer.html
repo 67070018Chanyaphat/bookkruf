@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>System Status Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family:"Arial",sans-serif; background:#f7f4fb; margin:0; padding:20px; color:#555; }
+h1 { text-align:center; margin-bottom:30px; color:#7a6fa1; font-size:32px; }
+
+.container { display:grid; grid-template-columns: repeat(3,1fr); gap:25px; max-width:1200px; margin:auto; }
+@media(max-width:900px){ .container { grid-template-columns:repeat(2,1fr);} }
+@media(max-width:600px){ .container { grid-template-columns:1fr;} }
+
+.card { background:#ffffffcc; padding:20px; border-radius:16px; box-shadow:0 6px 14px rgba(0,0,0,0.08); border:1px solid #eee; display:flex; flex-direction:column; justify-content:flex-start; transition:0.2s; }
+.card:hover { transform:translateY(-4px); box-shadow:0 8px 18px rgba(0,0,0,0.12); }
+
+.title { font-size:18px; margin-bottom:6px; color:#6c5f88; font-weight:bold; }
+.value { font-size:28px; font-weight:bold; }
+.subtext { font-size:14px; color:#7a6fa1; margin-bottom:10px; }
+
+.badge { display:inline-block; padding:2px 6px; font-size:12px; border-radius:10px; margin-top:6px; }
+.good { background:#c3f7c8; color:#1b6e2e; }
+.warning { background:#ffe9a8; color:#7a5a00; }
+.danger { background:#ffb3b3; color:#8a1f1f; }
+
+.progress-bg { width:100%; height:12px; background:#f0e6fa; border-radius:12px; overflow:hidden; margin-top:6px; display:block; }
+.progress { height:12px; border-radius:12px; display:block; transition:width 0.5s ease, background-color 0.5s ease; }
+
+.table-card { margin-top:40px; padding:20px; background:#ffffffcc; border-radius:16px; box-shadow:0 6px 14px rgba(0,0,0,0.08); max-width:900px; margin-left:auto; margin-right:auto; display:flex; flex-direction:column; }
+
+th, td { padding:10px; border-bottom:1px solid #eee; }
+th { background:#d6cfff; font-weight:bold; text-align:left; }
+
+.footer { margin-top:50px; text-align:center; color:#7f7f7f; }
+
+canvas { width:100% !important; height:auto !important; margin-top:30px; }
+</style>
+</head>
+<body>
+
+<h1>🌈 System Status Dashboard</h1>
+
+<div class="container">
+
+<div class="card">
+  <div class="title">CPU Usage</div>
+  <div class="value">24%</div>
+  <div class="progress-bg"><div class="progress" style="width:24%; background-color:#b8e0d2;"></div></div>
+  <div class="badge good">good</div>
+  <div class="subtext">2 cores / 4 threads</div>
+</div>
+
+<div class="card">
+  <div class="title">Memory Usage</div>
+  <div class="value">19%</div>
+  <div class="progress-bg"><div class="progress" style="width:19%; background-color:#f9e2ae;"></div></div>
+  <div class="badge good">good</div>
+  <div class="subtext">370 MB / 1919 MB</div>
+</div>
+
+<div class="card">
+  <div class="title">Disk Usage</div>
+  <div class="value">26%</div>
+  <div class="progress-bg"><div class="progress" style="width:26%; background-color:#ffc1c1;"></div></div>
+  <div class="badge good">good</div>
+  <div class="subtext">5 GB / 20 GB</div>
+</div>
+
+<div class="card">
+  <div class="title">Uptime</div>
+  <div class="value">3 hours, 6 minutes</div>
+  <div class="progress-bg"><div class="progress" style="width:100%; background-color:#ffd8b3;"></div></div>
+  <div class="badge danger">danger</div>
+</div>
+
+<div class="card">
+  <div class="title">Network Status</div>
+  <div class="value" style="color:#4caf50;">Online</div>
+</div>
+
+<div class="card">
+  <div class="title">Current Time</div>
+  <div class="value">2025-11-21 08:26:17</div>
+</div>
+
+</div>
+
+<div class="card" style="max-width:900px; margin:auto; margin-top:50px;">
+  <div class="title">Usage Overview (Chart)</div>
+  <canvas id="usageChart"></canvas>
+</div>
+
+<div class="table-card">
+  <div class="title">Latest Processes</div>
+  <table>
+    <tr><th>PID</th><th>USER</th><th>%CPU</th><th>%MEM</th><th>COMMAND</th></tr>
+<tr><td>4975</td><td>stamp</td><td>300.0</td><td>0.2</td><td>ps</td></tr>
+<tr><td>4941</td><td>stamp</td><td>3.7</td><td>0.1</td><td>MyServer_script</td></tr>
+<tr><td>4863</td><td>root</td><td>0.9</td><td>0.0</td><td>kworker/0:2H-kblockd</td></tr>
+<tr><td>692</td><td>root</td><td>0.6</td><td>0.4</td><td>vmtoolsd</td></tr>
+<tr><td>1412</td><td>stamp</td><td>0.5</td><td>0.3</td><td>sshd</td></tr>
+  </table>
+</div>
+
+<div class="footer">Pastel Dashboard • Ubuntu Server Monitor • v1.0</div>
+
+<script>
+const ctx=document.getElementById('usageChart').getContext('2d');
+const chart=new Chart(ctx,{
+  type:'bar',
+  data:{
+    labels:['CPU','Memory','Disk','Uptime'],
+    datasets:[{
+      label:'System Overview',
+      data:[24,19,26,100],
+      backgroundColor:['#b8e0d2','#f9e2ae','#ffc1c1','#ffd8b3'],
+      borderColor:['#888','#888','#888','#888'],
+      borderWidth:2
+    }]
+  },
+  options:{ responsive:true, scales:{y:{beginAtZero:true,max:100}} }
+});
+</script>
+
+</body>
+</html>
+
