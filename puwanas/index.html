@@ -74,19 +74,19 @@
     </div>
     <div class="stat-row">
 	    <span class="label">Last update :</span>
-	    <span class="value">2025-11-21 16:20:01</span>
+	    <span class="value">2026-01-13 01:40:40</span>
     </div>
     <div class="stat-row">
 	    <span class="label">CPU Usage :</span>
-	    <span class="value">0.0% (0.00, 0.00, 0.00)</span>
+	    <span class="value">25.5% (1.02, 0.82, 0.40)</span>
     </div>
     <div class="stat-row">
 	    <span class="label">Memory Usage :</span>
-	    <span class="value">526 / 7894 MB (6.7%)</span>
+	    <span class="value">609 / 7894 MB (7.7%)</span>
     </div>
     <div class="stat-row">
 	    <span class="label">Storage Usage :</span>
-	    <span class="value">2.6G / 9.8G (28%)</span>
+	    <span class="value">3.7G / 9.8G (40%)</span>
     </div>
   </div>
 
@@ -98,18 +98,18 @@
   <div class="card">
     <h2 style="margin-top:0;margin-bottom:0.5rem;">Top Processes (CPU)</h2>
     <table class="top-table"><thead><tr><th>PID</th><th>User</th><th>%CPU</th><th>%MEM</th><th>Command</th></tr></thead><tbody>
-<tr><td>838</td><td>root</td><td>0.0</td><td>0.1</td><td>vmtoolsd</td></tr>
-<tr><td>12594</td><td>root</td><td>0.0</td><td>0.0</td><td>kworker/2:0-events</td></tr>
-<tr><td>12352</td><td>root</td><td>0.0</td><td>0.0</td><td>kworker/2:1-events</td></tr>
-<tr><td>12038</td><td>root</td><td>0.0</td><td>0.0</td><td>kworker/1:0-events</td></tr>
-<tr><td>12399</td><td>root</td><td>0.0</td><td>0.0</td><td>kworker/0:0-events</td></tr>
+<tr><td>31</td><td>root</td><td>1.0</td><td>0.0</td><td>kworker/2:0-events</td></tr>
+<tr><td>136</td><td>root</td><td>0.9</td><td>0.0</td><td>kworker/3:2-events</td></tr>
+<tr><td>17531</td><td>_chrony</td><td>0.7</td><td>0.0</td><td>chronyd</td></tr>
+<tr><td>1</td><td>root</td><td>0.5</td><td>0.1</td><td>systemd</td></tr>
+<tr><td>14400</td><td>root</td><td>0.2</td><td>0.0</td><td>kworker/1:0H-kblockd</td></tr>
 </tbody></table>
   </div>
 
   <script>
-    const cpuPct=0.0;
-    const memPct=6.7;
-    const diskPct=28;
+    const cpuPct=25.5;
+    const memPct=7.7;
+    const diskPct=40;
 
     const ctx=document.getElementById('usageChart').getContext('2d');
     new Chart(ctx,{
