@@ -74,15 +74,15 @@
     </div>
     <div class="stat-row">
 	    <span class="label">Last update :</span>
-	    <span class="value">2026-02-06 21:40:01</span>
+	    <span class="value">2026-02-06 21:50:01</span>
     </div>
     <div class="stat-row">
 	    <span class="label">CPU Usage :</span>
-	    <span class="value">0.2% (0.01, 0.02, 0.00)</span>
+	    <span class="value">6.2% (0.25, 0.23, 0.09)</span>
     </div>
     <div class="stat-row">
 	    <span class="label">Memory Usage :</span>
-	    <span class="value">543 / 7894 MB (6.9%)</span>
+	    <span class="value">520 / 7894 MB (6.6%)</span>
     </div>
     <div class="stat-row">
 	    <span class="label">Storage Usage :</span>
@@ -98,17 +98,17 @@
   <div class="card">
     <h2 style="margin-top:0;margin-bottom:0.5rem;">Top Processes (CPU)</h2>
     <table class="top-table"><thead><tr><th>PID</th><th>User</th><th>%CPU</th><th>%MEM</th><th>Command</th></tr></thead><tbody>
-<tr><td>889</td><td>root</td><td>0.1</td><td>0.1</td><td>vmtoolsd</td></tr>
-<tr><td>111</td><td>root</td><td>0.1</td><td>0.0</td><td>kworker/2:1-events</td></tr>
-<tr><td>1978</td><td>root</td><td>0.1</td><td>0.0</td><td>kworker/1:0-events</td></tr>
-<tr><td>1</td><td>root</td><td>0.0</td><td>0.1</td><td>systemd</td></tr>
-<tr><td>1903</td><td>root</td><td>0.0</td><td>0.0</td><td>kworker/3:2-rcu_gp</td></tr>
+<tr><td>1</td><td>root</td><td>1.5</td><td>0.1</td><td>systemd</td></tr>
+<tr><td>517</td><td>root</td><td>0.3</td><td>0.2</td><td>systemd-journal</td></tr>
+<tr><td>584</td><td>root</td><td>0.3</td><td>0.1</td><td>systemd-udevd</td></tr>
+<tr><td>910</td><td>root</td><td>0.2</td><td>0.1</td><td>vmtoolsd</td></tr>
+<tr><td>1606</td><td>puwanas</td><td>0.2</td><td>0.1</td><td>systemd</td></tr>
 </tbody></table>
   </div>
 
   <script>
-    const cpuPct=0.2;
-    const memPct=6.9;
+    const cpuPct=6.2;
+    const memPct=6.6;
     const diskPct=40;
 
     const ctx=document.getElementById('usageChart').getContext('2d');
